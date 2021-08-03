@@ -6,6 +6,6 @@ EXPOSE 1813/udp
 RUN apt-get update
 RUN apt-get -y install wget sudo
 RUN wget https://static.okta.com/static/radius/OktaRadiusAgentSetup-2.15.1.deb -P /var/tmp
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get -yq install /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
-RUN rm -f /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
+#ARG DEBIAN_FRONTEND=noninteractive
+#RUN apt-get -yq install /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
+#RUN rm -f /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
