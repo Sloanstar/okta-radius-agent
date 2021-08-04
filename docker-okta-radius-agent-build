@@ -4,7 +4,7 @@ FROM ubuntu:focal
 EXPOSE 1812/udp
 EXPOSE 1813/udp
 RUN apt-get update
-RUN apt-get -y install wget sudo
+RUN apt-get -y install wget sudo debconf-utils
 RUN wget https://static.okta.com/static/radius/OktaRadiusAgentSetup-2.15.1.deb -P /var/tmp
 #ARG DEBIAN_FRONTEND=noninteractive
 #RUN apt-get -yq install /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
