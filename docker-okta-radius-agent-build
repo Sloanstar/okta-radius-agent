@@ -1,5 +1,5 @@
 #syntax=docker/dockerfile:1
-#docker build https://github.com/Sloanstar/okta-radius-agent.git#container:docker-okta-radius-agent-build
+#docker build --pull https://github.com/Sloanstar/okta-radius-agent.git#container:docker-okta-radius-agent-build
 FROM ubuntu:focal
 EXPOSE 1812/udp
 EXPOSE 1813/udp
