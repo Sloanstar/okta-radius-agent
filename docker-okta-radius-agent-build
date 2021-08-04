@@ -6,7 +6,7 @@ EXPOSE 1813/udp
 RUN apt-get update
 RUN apt-get -y install wget sudo debconf-utils
 RUN wget https://static.okta.com/static/radius/OktaRadiusAgentSetup-2.15.1.deb -P /var/tmp
-RUN dpkg --unpack OktaRadiusAgentSetup-2.15.1.deb
+RUN dpkg --unpack /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
 RUN rm -f /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
 RUN sed -i '2 i orgUrl=$OKTA_ORG' /opt/okta/ragent/scripts/configure.sh
 RUN sed -i '3 i useProxy=$OKTA_USE_PROXY' /opt/okta/ragent/scripts/configure.sh
@@ -19,3 +19,4 @@ ENV OKTA_USE_PROXY=No
 ENV OKTA_PROXY_ADDR=
 ENV OKTA_PROXY_USER=
 ENV OKTA_PROXY_PASS=
+RUN dpkg --configure ragent
