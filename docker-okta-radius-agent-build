@@ -5,7 +5,7 @@ EXPOSE 1812/udp
 EXPOSE 1813/udp
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get -y install wget sudo debconf-utils
+RUN apt-get -y install wget sudo
 RUN wget https://static.okta.com/static/radius/OktaRadiusAgentSetup-2.15.1.deb -P /var/tmp
 RUN dpkg --unpack /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
 RUN rm -f /var/tmp/OktaRadiusAgentSetup-2.15.1.deb
@@ -20,4 +20,3 @@ ENV OKTA_USE_PROXY=No
 ENV OKTA_PROXY_ADDR=
 ENV OKTA_PROXY_USER=
 ENV OKTA_PROXY_PASS=
-RUN dpkg --configure ragent
