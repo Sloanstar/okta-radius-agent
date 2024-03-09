@@ -4,7 +4,7 @@ FROM ubuntu:focal
 EXPOSE 1812/udp
 EXPOSE 1813/udp
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get -y install wget sudo && wget https://static.okta.com/static/radius/OktaRadiusAgentSetup-2.17.1.deb -P /var/tmp && dpkg --unpack /var/tmp/OktaRadiusAgentSetup-2.17.1.deb && rm -f /var/tmp/OktaRadiusAgentSetup-2.17.1.deb && sed -i '2 i orgUrl=$OKTA_ORG' /opt/okta/ragent/scripts/configure.sh && sed -i '3 i useProxy=$OKTA_USE_PROXY' /opt/okta/ragent/scripts/configure.sh && sed -i '4 i proxyAddress=$OKTA_PROXY_ADDR' /opt/okta/ragent/scripts/configure.sh && sed -i '5 i proxyUserName=$OKTA_PROXY_USER' /opt/okta/ragent/scripts/configure.sh && sed -i '6 i proxyPassword=$OKTA_PROXY_PASS' /opt/okta/ragent/scripts/configure.sh
+RUN apt-get update && apt-get -y install wget sudo && wget https://static.okta.com/static/radius/OktaRadiusAgentSetup-2.20.0.deb -P /var/tmp && dpkg --unpack /var/tmp/OktaRadiusAgentSetup-2.20.0.deb && rm -f /var/tmp/OktaRadiusAgentSetup-2.20.0.deb && sed -i '2 i orgUrl=$OKTA_ORG' /opt/okta/ragent/scripts/configure.sh && sed -i '3 i useProxy=$OKTA_USE_PROXY' /opt/okta/ragent/scripts/configure.sh && sed -i '4 i proxyAddress=$OKTA_PROXY_ADDR' /opt/okta/ragent/scripts/configure.sh && sed -i '5 i proxyUserName=$OKTA_PROXY_USER' /opt/okta/ragent/scripts/configure.sh && sed -i '6 i proxyPassword=$OKTA_PROXY_PASS' /opt/okta/ragent/scripts/configure.sh
 CMD exec /etc/init.d/ragent start
 ENV OKTA_ORG=https://demo.okta.com
 ENV OKTA_USE_PROXY=No
